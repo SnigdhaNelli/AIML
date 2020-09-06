@@ -1,0 +1,35 @@
+Task 2 :
+1) Variation with number of training data points 'seen': 
+	Here the graph starts from small values(for example starting from origin) as the data points seen initially is small and weights are not updated much which may or may not result in correct classification. slowly with the increase in data points seen the accuracy increases as the weights are updated.The fluctuations in the graph are due to overclassifiation i.e. the already classified points may get misclassified.
+
+	In general the train accuracy is higher than test accuracy bcz the training data set will generally contains different groups of points belonging to different classes so as the order of considering points is concerned, some points may get classified correctly which results in some non-zero training accuracy which is not the case in test data set which may contain completely random distribution.
+	
+2) Variation with training set size in each iteration :
+	Here the training accuracy starts from higher values bcz the accuracy is calculated after certain iterations on data set of non zero size (where weights get updated)
+	As the training set size increases the weights will get updated more accurately to increase the accuracy of the test set.But the may fluctuate i.e. decrease and increase, this is because - on updating weights the classified points may get disclassified. 
+
+	1)Ques :
+		A point on x-axis with 0 training points.
+
+			Inorder to classify we need to find the scores of the given feature across labels.As the initial weight vector is of all zeroes, all the scores results in zero ie. array of zero scores.Now we need to find 'argmax' of this array, where 'argmax' function internally calls the inbuilt 'max' function. If all the values are same in an array then max function selects the 1st value ie. 0th index.
+				Hence the given point(lying on x-axis is classified into the class with label 0)
+
+			Implies all points are classified as of label 0. hence the data points that actually belong to label 0 are correctly classified.
+
+			Accuracy = no of points belonging to class of label 0 / total points
+
+---------------------------------------------------------
+
+
+Task 3.1 : Comparing the performances of perceptron1vr and perceptron1v1
+
+1) using 800 data points for training and 8000 data points for testing
+	1vr gives 71.3% Accuracy
+	1v1 gives 71.5% Accuracy
+2) using 80000 data points for training and 20000 data points for testing
+	1vr gives 73.8% Accuracy
+	1v1 gives 78.8% Accuracy
+
+	Clearly 1v1 gives higher accuracy than 1vr perceptron in both the cases.
+
+	In the 1vr perceptron we are classifying the points using 'k' hyperplanes where as in 1v1 using k*(k-1)/2 hyperplanes ,from this we can generally assert that 1v1 classifies more efficiently. Also during training if there is an outlier(misclassification) the change in 1vr weights affects more no of points compared to 1v1 in which updated weights affect only points belonging to that pair. Hence more misclassification can occur in 1vr compared to 1v1.
