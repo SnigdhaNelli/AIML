@@ -1,0 +1,10 @@
+TASK 3
+-----------------
+1) regarding 'path.png'
+	Here the path is longer than the optimal path from start to end.
+	As the probability p = 0.2 is very small (near to 0) which results in high information loss(1-p), thus allowing the agent recieving the correct action only with probability 0.2 and leading to a valid random move with high probability 0.8, Hence the no of steps taken are more than that of optimal path which is depicted in the graph.
+
+2) regarding 'plot.png'
+	As the probaility increases from 0 to 1, at a given state the probaility of choosing the optimal action increases leading to less no steps required to reach to the end.This is depicted well in th graph.
+	In the graph as the p increases from 0 to 1 the no of actions to reach to the end state continuously decreases.
+	At p = 0, no of steps required are very much greater than that of optimal value because there is no advantage of finding the optimal action at a state here as all the actions corresponds to same probability.

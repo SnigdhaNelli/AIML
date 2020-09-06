@@ -1,0 +1,6 @@
+https://en.wikipedia.org/wiki/Netpbm_format  --> referred for understanding ppm and pgm image formats
+
+
+referred lab3(ensembling) files --> used function 'nSample' from 'util.py' to sample the data which has a probability distribition.
+
+https://www.geeksforgeeks.org/ord-function-python/  --> used ord() and chr() functions for converting Ascii to integer values and vice versa

@@ -1,0 +1,66 @@
+Name: B V Sai Ganesh
+Roll number: 160050078
+========================================
+
+
+================
+     TASK 2
+================
+
+
+1. Run your code on datasets/garden.csv, with different values of k. Looking at the performance plots, does the SSE of k-means algorithm ever increase as the iterations are made? (1 mark)
+Answer: The SSE value never increases as the iterations are performed. 
+        This is because the algorithm is constructed in such a way that measure of SSE decreases for each iteration and also we have proved this in the class, 
+        the algorithm moves forward only if there exists a point that finds a closer cluster center than one assigned to it in the present configuration.
+
+3. Look at the files 3lines.png and mouse.png. Manually draw cluster boundaries around the 3 clusters visible in each file (no need to submit the hand drawn clusters). Test the k-means algorithm on the datasets datasets/3lines.csv and datasets/mouse.csv. How does the algorithm’s clustering compare with the clustering you would do by hand? Why do you think this happens? (1 mark)
+Answer: In case of '3lines.png' the algorithm clustering is completely different from the hand written one, this is becuase of the initialization of the cluster centroids.
+        In case of 'mouse.png' the algorithm does not cluster the image correctly, some of the points(part of image) that are expected to be present in some cluster are misplaced(ie placed in another cluster), 
+        this is because of the binary assignment of each data point to the clusters(as this fails in case of points that lie near interface of two clusters where this point is assigned to any of the cluster binarily - i.e. with probability 1)
+
+
+
+================
+     TASK 3
+================
+
+1. For each dataset, with kmeansplusplus initialization algorithm, report “average SSE” and "average iterations". Explain the results. (2 mark)
+Answer: In general the Average SSE value of 'forgy' initialized algorithm is greater than that of 'k-means++' initialized algorithm, this is because , with the k-means++ initialisation, the algorithm is guaranteed to find a solution that is O(logk) competitive to the optimal k-means solution in expectation, 
+        where as with 'forgy' initialisation the error is unbounded unlike kmeans++.
+        And the Average Iterations for kmeans++ will be less than 'forgy' case, because in case of kmeans++ a good spread out of the initial clusters is achieved fastly compared to forgy case where inintial cluster centers are selected randomly.
+        We can see that the results are in sync with the above statements mentioned.
+        In case of small sized datasets(100.csv & 1000.csv) the Average SSE and average iterations values for both initialisations are nearly same.
+        In case of large dataset (10000.csv), we can observe much differnce in both the measures - Average SSE in case of forgy is nearly 8 times larger than that of kmeans++ and Average iterations in forgy case is nearly 3 times that of kmeans++ case.
+
+Dataset     |  Initialization | Average SSE    | Average Iterations
+==================================================================
+   100.csv  |        forgy    | 8472.63311469  |    2.43
+   100.csv  |        kmeans++ | 8472.63311469  |    2.04
+  1000.csv  |        forgy    | 21337462.2968  |    3.28
+  1000.csv  |        kmeans++ | 19887301.0042  |    3.16
+ 10000.csv  |        forgy    | 168842238.612  |    21.1
+ 10000.csv  |        kmeans++ | 22323178.8625  |    7.5
+
+
+================
+  TASK 4
+================
+
+1. Can you observe from the visualization that k-medians algorithm is more robust to outliers as compared to k-means? Why do you think this happens? (1.5 marks)
+Answer: Yes the k-medians algorithm is more robust to outliers as compared to k-means, this is because
+        In case of k-means the updation of the centroids is done by taking the mean of the data points which is highly sensitive to the outliers if there are very bad outliers.
+        In case of k-medians the updations of centroids is done by taking the medians of the components of the data points in which case the median almost lies near the data points which are closely situated and the median is less sensitive to the outliers, as we are taking the central value among the datapoints in which case the ouliers doent come into play. 
+
+================
+  TASK 8
+================
+
+1. What do you observe as we reduce the number of clusters (k)? Answer in reference to the quality of decompressed image. (0.5 mark)
+Answer: As we reduce the number of clusters (k) the quality of decompressed image decreases, this is because, we can not represent the whole image with such small k value(i.e. using very less no of colours) and also as k increases and reaches to no of data points then image can perfectly represented.
+        if the image can be represented using less value of 'k'(which is not our case) then decreasing 'k' may not effect much in quality.
+
+
+2. You can observe that for the small number of clusters, the degree of compression (original size/compressed size) is about the same as that of when we use larger number of clusters even though we need to store lesser number of colors. Can you tell why? How can we increase this ratio in case of smaller number of clusters? [1 mark]
+Answer: the degree of compression is about the same if we change the number of clusters in our example, because the size of image = height*witdh*3 and the size of compressed image = height*witdh + k and
+        in  our example the value of height*witdh is in th order of 80000 which is much larger than the value of k we are varying, so there wont be much differnce between the degree of compression(the value will be roughly 3).
+        we can increase this ratio in case of small no of clusters by using lesser no of bits(less than 8-bits) to store the values of the compressed image, since the values in compressed image corresponds to the cluster labels and the no of labels are small, it is sufficient to use less than 8 bits to store them.

@@ -1,0 +1,1 @@
+Used some numpy functionalities like np.array().flatten(), np.random().choice()
