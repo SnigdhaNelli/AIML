@@ -1,0 +1,76 @@
+Task 2.5 : Results
+===========================
+
+Task 2.1
+---------
+Learning rate = 0.1
+number of hidden layers = 1
+number of nodes in each hidden layer = 4
+batchsize = 50
+number of epochs = 50
+
+Accuracy obtained = 99.1(seed = 1)
+
+As it is a simple boolean expression(XOR), we can do it using one hidden layer. Tried varying no of nodes in the hidden layer and 
+minimal configuration is obtained using 4 nodes in hidden layer
+
+---------------------------------------------------------------------
+
+Task 2.2
+---------
+Learning rate = 0.25
+number of hidden layers = 1
+number of nodes in each hidden layer = 2
+batchsize = 50
+number of epochs = 30
+
+Accuracy obtained = 97.2(seed = 2)
+
+Tried varying no of nodes in the hidden layer and minimal configuration is obtained using 2 nodes in hidden layer
+
+--------------------------------------------------------------------------
+
+Task 2.3
+----------
+Learning rate = 0.07
+number of hidden layers = 1
+number of nodes in each hidden layer = 15
+batchsize = 50
+number of epochs = 30
+
+Accuracy obtained = 92.05(seed = 50)
+
+Surprisingly even with 0 hidden layers we are getting ~90% acuuracy 
+but to get better performance it would be better to maintain atleast one hidden layer and I'm getting minimal configuration at 15 nodes i hidden layer
+
+-------------------------------------------------------------------------------
+
+Task 2.4
+-----------
+
+Learning rate = 0.1
+number of hidden layers = 1
+batchsize = 20
+number of epochs = 10
+seed = 0
+
+Layers:
+Convolutional Layer (filter size = [10x10], stride = 3, no of filters = 4)
+Flatten Layer
+Fully Connected Layer(4*8*8 x 30)
+Fully Connected Layer(30 x 10)
+
+Accuracy obtained = 40.9
+
+On varying the no of filters observed that on increasing the no of filters accuracy increases. for maintaining minimum topology i chose no of filters as 4
+Fixing no of filters used and varying the stride i observed that there is an increase first and decrease later and maximum is coming for stride = 3
+
+maintaining the same configuration as above and changing no of filters and stride length i got the below results
+4 filters and stride = 2 --> Accuracy = 38.8 (seed = 0)
+4 filters and stride = 3 --> Accuracy = 40.9 (seed = 0)
+4 filters and stride = 4 --> Accuracy = 36.1 (seed = 0)
+6 filters and stride = 2 --> Accuracy = 39.5 (seed = 0)
+6 filters and stride = 4 --> Accuracy = 38.7 (seed = 0)
+
+(Conv: 6 filters and stride = 4), (Avg pool: 2*2 filter size and stride = 2) --> Accuracy = 34.5 (seed = 0)
+------------------------------------------------------------------------------
